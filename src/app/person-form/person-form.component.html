@@ -1,0 +1,45 @@
+<!-- <p>person-form works!</p> -->
+<div>
+    <h2>Person Form</h2>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Input field : first name -->
+      <div><input placeholder="Enter your first name" [(ngModel)]="personfirstname" name="firstname" required></div>
+      
+      <!-- Input field : last name -->
+      <div><input placeholder="Enter your last name" [(ngModel)]="personlastname" name="lastname" required></div>
+      <br>
+      <!-- Input fields : skills -->
+      <div>
+      <div *ngFor="let input of personSkills; let i = index">
+        <div><label>Skill {{i + 1}} :</label></div>
+        <input [(ngModel)]="personSkills[i]" name="input{{i}}">
+     </div>
+     <button type="button" (click)="addInput()">Add a skill</button>
+     <button type="button" (click)="remInput()">remove a Skill</button>
+     </div>
+     <br>
+      <!-- Input fields :  social media-->
+       <div>
+      <div *ngFor="let input2 of personAccounts; let j = index">
+        <div><label>Accounts {{j + 1}} :</label></div>
+        <label>type :</label><input [(ngModel)]="personAccounts[j].type" name="input2{{j}}">
+        <label>Address :</label><input [(ngModel)]="personAccounts[j].address" name="input2{{j}}">
+     </div>
+     <button type="button" (click)="addInput2()">Add an account</button>
+     <button type="button" (click)="remInput2()">remove an account</button>
+    </div>
+
+    <br>
+      <!-- Sumbit button -->
+      <div><button color="primary">Submit</button></div>
+    </form>
+
+    <br>
+    <!-- Show loaded persons -->
+    <button type="button" (click)="loadPersons()">Show persons</button>
+      <br>
+    <h2>Submitted Names</h2>
+    <ul>
+      <li *ngFor="let p of persons">{{p.id}} {{ p.firstName }} {{ p.lastName }}</li>
+    </ul>
+  </div>
