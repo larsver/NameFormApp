@@ -48,8 +48,6 @@ export class PersonFormComponent implements OnInit{
     this.personService.getPersons().subscribe(
       thepersons => {
         this.persons = thepersons;
-        console.log('persons loaded:', thepersons);
-        console.log('persons loaded:', this.persons);
       },
       error => {
         console.error('Error loading persons:', error);

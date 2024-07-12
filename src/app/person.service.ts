@@ -20,7 +20,8 @@ interface PersonModel {
   providedIn: 'root'
 })
 export class PersonService {
-  private apiUrl =  'https://localhost:7201/api/Persons';
+  // private apiUrl =  'https://localhost:7201/api/Persons';
+  private apiUrl =  'https://localhost:5001/api/Persons';
 
   constructor(private http: HttpClient) {}
 
